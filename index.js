@@ -1,18 +1,20 @@
-let form = document.querySelector("#form")
+const firstHttp = require("http");
 
-form.addEventListener("submit", function(e){
-  e.preventDefault()
+const firstServer = firstHttp.createserver(
+  function( firstRequest, firstResponse){
+    console.log(firstRequest.url)
 
-  let queryString = this.createQueryString()
-  // make your request!
-})
-HTMLElement.prototype.createQueryString = function () {
-  let inputs = this.querySelectorAll('input, textarea, select')
+    const firstText;
+    if (firstRequest.url === "/hey"){
+      firstText = "hello human!";
+    }else {
+      firstText = "you dont even go here!";
+    }
+    
+    firstResponse.writeHead(200, { "Content-type": "text/css" });
+    firstResponse.end("Hey Whoever is on here!");
+  }
+);
 
-  let queryString = ''
-  inputs.forEach(input => queryString += `${input.name}=${input.value}&`)
-
-  queryString = queryString.substring(0, queryString.length -1)
-
-  return queryString
-}
+firstServer.listen(8080, "0.0.0.0")
+console.log("server is starting up");
