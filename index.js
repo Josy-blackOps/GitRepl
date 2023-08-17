@@ -1,10 +1,10 @@
-const firstHttp = require("http");
+let firstHttp = require("http");
 
-const firstServer = firstHttp.createserver(
+let firstServer = firstHttp.createserver(
   function( firstRequest, firstResponse){
     console.log(firstRequest.url)
 
-    const firstText;
+    let firstText;
     if (firstRequest.url === "/hey"){
       firstText = "hello human!";
     }else {
