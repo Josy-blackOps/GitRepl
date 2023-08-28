@@ -1,16 +1,16 @@
 let firstHttp = require("http");
 
-let firstServer = firstHttp.createserver(
-  function( firstRequest, firstResponse){
+let firstServer = firstHttp.createServer(
+  function(firstRequest, firstResponse) {
     console.log(firstRequest.url)
 
     let firstText;
-    if (firstRequest.url === "/hey"){
+    if (firstRequest.url === "/hey") {
       firstText = "hello human!";
-    }else {
+    } else {
       firstText = "you dont even go here!";
     }
-    
+
     firstResponse.writeHead(200, { "Content-type": "text/css" });
     firstResponse.end("Hey Whoever is on here!");
   }
